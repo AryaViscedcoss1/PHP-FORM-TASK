@@ -6,43 +6,32 @@
 </head>
 <body>
 <form action="" method="post">
-Number1: <input type="number" name="number1" ><br><br>
-Number2: <input type="number" name="number2" min="1"><br><br>
-Result <input type="number" name="result" value="<?php echo cal() ?>"><br><br>
-<input type="submit" value="+" name="submit1">
-<input type="submit" value="-" name="submit2">
-<input type="submit" value="*" name="submit3">
-<input type="submit" value="/" name="submit4"><br>
+<input type="number" name="NUMBER" min="1"><br><br>
+ HOURS TO SECONDS:<input type="radio" name="click" value="hts"><br><br>
+ HOURS TO MINUTES:<input type="radio" name="click" value="htm"><br><br>
+<input type="submit" name="submit"><br><br>
 </form> 
-<?php  
-function cal()
-{
 
-$num1=$_POST["number1"];
-$num2=$_POST["number2"];
-$result=$_POST["result"];
-if(isset($_POST["submit1"]))
+<h1><?php  
+
+if(isset($_POST['submit']))
 {
-   $result=$num1+$num2;
+    if($_POST['click']=="hts")
+      {
+          echo $_POST["NUMBER"]*3600;
+      }
+    
+    else if($_POST['click']=="htm")
+      {
+        echo $_POST["NUMBER"]*60;
+      }
+
+    else
+      {
+
+      }
 }
-elseif(isset($_POST["submit2"]))
-{
-  $result=$num1-$num2;
-} 
-elseif(isset($_POST["submit3"]))
-{
-  $result=$num1*$num2;
-} 
-elseif(isset($_POST["submit4"]))
-{
-  $result=$num1/$num2;
-}
-
-return $result;
-
-}
-
-?>
+?></h1>
 </body>
 </html>
 <script src="script.js "></script>
